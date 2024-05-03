@@ -1,0 +1,31 @@
+class Vehiculo:
+    def __init__(self, nombre, velocidad):
+        self.nombre = nombre
+        self.velocidad = velocidad
+
+    def moverse(self):
+        return f"{self.nombre} se está moviendo a {self.velocidad} km/h"
+
+class Coche(Vehiculo):
+    def __init__(self, nombre, velocidad, color):
+        super().__init__(nombre, velocidad)
+        self.color = color
+
+    def moverse(self):
+        return f"Un coche {self.color} llamado {self.nombre} se está moviendo a {self.velocidad} km/h"
+
+class Avion(Vehiculo):
+    def __init__(self, nombre, velocidad, altitud):
+        super().__init__(nombre, velocidad)
+        self.altitud = altitud
+
+    def moverse(self):
+        return f"Un avión llamado {self.nombre} está volando a {self.velocidad} km/h a una altitud de {self.altitud} pies"
+
+# Uso de polimorfismo
+vehiculos = [Vehiculo("Vehículo Genérico", 50),
+             Coche("Toyota", 100, "azul"),
+             Avion("Boeing 747", 900, 35000)]
+
+for vehiculo in vehiculos:
+    print(vehiculo.moverse())
